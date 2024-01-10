@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRApi", "SignalRApi\SignalRApi.csproj", "{FDFFD7E1-6F47-407E-A3E9-9861A458F615}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRApi", "SignalRApi\SignalRApi.csproj", "{FDFFD7E1-6F47-407E-A3E9-9861A458F615}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRWebUI", "SignalRWebUI\SignalRWebUI.csproj", "{F4032A6F-A045-4C25-B4AC-4A9E729AA96B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRWebUI", "SignalRWebUI\SignalRWebUI.csproj", "{F4032A6F-A045-4C25-B4AC-4A9E729AA96B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.EntityLayer", "SignalR.EntityLayer\SignalR.EntityLayer.csproj", "{78070984-6B10-4E6A-84B0-2D29835C5379}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.DataAccessLayer", "SignalR.DataAccessLayer\SignalR.DataAccessLayer.csproj", "{CE83719A-F9C2-4FFB-90B6-B479A409B751}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{F4032A6F-A045-4C25-B4AC-4A9E729AA96B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4032A6F-A045-4C25-B4AC-4A9E729AA96B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4032A6F-A045-4C25-B4AC-4A9E729AA96B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78070984-6B10-4E6A-84B0-2D29835C5379}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78070984-6B10-4E6A-84B0-2D29835C5379}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78070984-6B10-4E6A-84B0-2D29835C5379}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78070984-6B10-4E6A-84B0-2D29835C5379}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE83719A-F9C2-4FFB-90B6-B479A409B751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE83719A-F9C2-4FFB-90B6-B479A409B751}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE83719A-F9C2-4FFB-90B6-B479A409B751}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE83719A-F9C2-4FFB-90B6-B479A409B751}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
