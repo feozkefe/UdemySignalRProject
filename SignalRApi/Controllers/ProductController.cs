@@ -37,6 +37,7 @@ namespace SignalRApi.Controllers
             var context = new SignalRContext();
             var values = context.Products.Include(x => x.Category).Select(y => new ResultProductWithCategory
             {
+                ProductId = y.ProductId,
                 Description = y.Description,
                 ImageUrl = y.ImageUrl,
                 Price = y.Price,
@@ -56,6 +57,7 @@ namespace SignalRApi.Controllers
                Status = createProductDto.Status,
                Price = createProductDto.Price,
                ProductName = createProductDto.ProductName,
+               CategoryId = createProductDto.CategoryId
             };
 
             _productService.TAdd(product);
@@ -81,12 +83,13 @@ namespace SignalRApi.Controllers
                 Status = updateProductDto.Status,
                 Price = updateProductDto.Price,
                 ProductName = updateProductDto.ProductName,
+                CategoryId = updateProductDto.CategoryId
             };
             _productService.TUpdate(product);
             return Ok("Ürün Güncellendi");
         }
 
-        [HttpGet("GetProduct")]
+        [HttpGet("{id}")]
         public IActionResult GetProduct(int id)
         {
             var value = _productService.TGetById(id);

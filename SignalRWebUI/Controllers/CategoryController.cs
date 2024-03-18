@@ -62,7 +62,8 @@ namespace SignalRWebUI.Controllers
             return View();
         }
 
-		public async Task<IActionResult> UpdateCategory(int id)
+        [HttpGet]
+        public async Task<IActionResult> UpdateCategory(int id)
 		{
 			var client = _httpClientFactory.CreateClient();
 			var responseMessage = await client.GetAsync($"https://localhost:7290/api/Category/{id}");
@@ -88,6 +89,5 @@ namespace SignalRWebUI.Controllers
             }
             return View();
         }
-
     }
 }
