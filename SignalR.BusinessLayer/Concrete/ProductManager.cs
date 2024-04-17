@@ -1,11 +1,6 @@
 ﻿using SignalR.BusinessLayer.Abstract;
 using SignalR.DataAccessLayer.Abstract;
 using SignalR.EntityLayer.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SignalR.BusinessLayer.Concrete
 {
@@ -41,6 +36,41 @@ namespace SignalR.BusinessLayer.Concrete
         public List<Product> TGetProductsWithCategories()
         {
             return _productDal.GetProductsWithCategories();
+        }
+
+        public int TProductCount()
+        {
+            return _productDal.ProductCount();
+        }
+
+        public int TProductCountByCategoryNameDrink()
+        {
+            return _productDal.ProductCountByCategoryNameDrink();
+        }
+
+        public int TProductCountByCategoryNameHamburger()
+        {
+            return _productDal.ProductCountByCategoryNameDrink();
+        }
+
+        public string TProductNameByMaxPrice()
+        {
+            return _productDal.ProductNameByMaxPrice();
+        }
+
+        public string TProductNameByMinPrice()
+        {
+            return _productDal.ProductNameByMinPrice();
+        }
+
+        public decimal TProductPriceAvg()
+        {
+            return _productDal.ProductPriceAvg();
+        }
+
+        public decimal TProductAvgPriceByHamburger()
+        {
+            return _productDal.ProductAvgPriceByHamburger();
         }
 
         public void TUpdate(Product entity)
