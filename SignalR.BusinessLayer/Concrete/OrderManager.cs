@@ -48,6 +48,11 @@ namespace SignalR.BusinessLayer.Concrete
             return _orderDal.TotalOrderCount();
         }
 
+        public decimal TTodayTotalBill()
+        {
+            return _orderDal.TodayTotalBill();
+        }
+
         public void TUpdate(Order entity)
         {
             _orderDal.Update(entity);
