@@ -6,10 +6,14 @@
 <html>
 @await Component.InvokeAsync("_LayoutHeaderPartialComponent")
 <body>
-    @await Component.InvokeAsync("_LayoutNavbarPartialComponent")
-    @await Component.InvokeAsync("_LayoutSidebarPartialComponent")
-    @RenderBody()
-    @await Component.InvokeAsync("_LayoutFooterPartialComponent")
-    @await Component.InvokeAsync("_LayoutScriptPartialComponent")
+    <div class="wrapper">
+        @await Component.InvokeAsync("_LayoutNavbarPartialComponent")
+        @await Component.InvokeAsync("_LayoutSidebarPartialComponent")
+        <div class="main-panel">
+            @RenderBody()
+            @await Component.InvokeAsync("_LayoutFooterPartialComponent")
+            @await Component.InvokeAsync("_LayoutScriptPartialComponent")
+        </div>
+    </div>
 </body>
 </html> 
