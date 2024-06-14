@@ -16,3 +16,16 @@
 --kasadaki tutar
 --bugünkü kazanç 
 --masa sayısı
+
+
+        function showproductid(value) {
+            var id = value;
+            $.ajax({
+                type: 'post',
+                data: { item: id },
+                contentType: 'json',
+                success: function () {
+                    swal("Product id: " + id, "Product added to basket", "success");
+                }
+            });
+        }

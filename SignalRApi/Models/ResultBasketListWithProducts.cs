@@ -1,6 +1,8 @@
-﻿namespace SignalRWebUI.Dtos.BasketDtos
+﻿using SignalR.EntityLayer.Entities;
+
+namespace SignalRApi.Models
 {
-    public class ResultBasketDto
+    public class ResultBasketListWithProducts
     {
         public int BasketId { get; set; }
         public int ProductId { get; set; }
@@ -9,6 +11,5 @@
         public decimal TotalPrice { get; set; }
         public int GuestTableId { get; set; }
         public string ProductName { get; set; }
-        
     }
 }

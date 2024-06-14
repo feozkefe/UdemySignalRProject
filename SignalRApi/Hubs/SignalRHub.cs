@@ -7,19 +7,23 @@ namespace SignalRApi.Hubs
 {
 	public class SignalRHub : Hub
 	{
-		private readonly ICategoryService _categoryService;
-		private readonly IProductService _productService;
-		private readonly IOrderService _orderService;
-		private readonly IMoneyCaseService _moneyCaseService;
-		private readonly IGuestTableService _guestTableService;
+        private readonly ICategoryService _categoryService;
+        private readonly IProductService _productService;
+        private readonly IOrderService _orderService;
+        private readonly IMoneyCaseService _moneyCaseService;
+        private readonly IGuestTableService _guestTableService;
+        private readonly IBookingService _bookingService;
+        private readonly INotificationService _notificationService;
 
-        public SignalRHub(ICategoryService categoryService, IProductService productService, IOrderService orderService, IMoneyCaseService moneyCaseService, IGuestTableService guestTableService)
+        public SignalRHub(ICategoryService categoryService, IProductService productService, IOrderService orderService, IMoneyCaseService moneyCaseService, IGuestTableService guestTableService, IBookingService bookingService, INotificationService notificationService)
         {
             _categoryService = categoryService;
             _productService = productService;
             _orderService = orderService;
             _moneyCaseService = moneyCaseService;
             _guestTableService = guestTableService;
+            _bookingService = bookingService;
+            _notificationService = notificationService;
         }
 
         public async Task SendStatistic()
@@ -83,6 +87,21 @@ namespace SignalRApi.Hubs
 
             var value3 = _guestTableService.TGuestTableCount();
             await Clients.All.SendAsync("ReceiveGuestTableCount", value3);
+        }
+
+        public async Task GetBookingList()
+        {
+            var values = _bookingService.TGetListAll();
+            await Clients.All.SendAsync("ReceiveBookingList", values);
+        }
+
+        public async Task SendNotification()
+        {
+            var values = _notificationService.TNotificationCountByStatusFalse();
+            await Clients.All.SendAsync("ReceiveNotificationCountByStatusFalse", values);
+
+            var notificationListByFalse = _notificationService.TGetAllNotificationByFalse();
+            await Clients.All.SendAsync("ReceiveNotificationListByFalse",notificationListByFalse);
         }
     }
 }

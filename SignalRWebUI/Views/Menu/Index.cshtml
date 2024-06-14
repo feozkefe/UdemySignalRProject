@@ -134,6 +134,7 @@
             $.ajax({
                 type: 'post',
                 data: { item: id },
+                url: "/Menu/AddBasket/"+ id,
                 contentType: 'json',
                 success: function () {
                     swal("Product id: " + id, "Product added to basket", "success");
