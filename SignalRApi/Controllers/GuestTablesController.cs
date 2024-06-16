@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SignalR.BusinessLayer.Abstract;
+using SignalR.DtoLayer.GuestTableDto;
+using SignalR.EntityLayer.Entities;
 
 namespace SignalRApi.Controllers
 {
@@ -30,17 +31,16 @@ namespace SignalRApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateGuestTable(CreateAboutDto createAboutDto)
+        public IActionResult CreateGuestTable(CreateGuestTableDto createGuestTableDto)
         {
-            About about = new About()
+            GuestTable guestTable = new GuestTable()
             {
-                Title = createAboutDto.Title,
-                Description = createAboutDto.Description,
-                ImageUrl = createAboutDto.ImageUrl,
+                Name= createGuestTableDto.Name,
+                Status = false
             };
 
-            _guestTableService.TAdd(about);
-            return Ok("Hakkında Kısmı Başarılı Bir Şekilde Eklendi");
+            _guestTableService.TAdd(guestTable);
+            return Ok("Misafir Masa Kısmı Başarılı Bir Şekilde Eklendi");
         }
 
         [HttpDelete("{id}")]
@@ -48,21 +48,20 @@ namespace SignalRApi.Controllers
         {
             var value = _guestTableService.TGetById(id);
             _guestTableService.TDelete(value);
-            return Ok("Hakkında Alanı Silindi");
+            return Ok("Misafir Masa Alanı Silindi");
         }
 
         [HttpPut]
-        public IActionResult UpdateGuestTable(UpdateAboutDto updateAboutDto)
+        public IActionResult UpdateGuestTable(UpdateGuestTableDto updateGuestTableDto)
         {
-            About about = new About()
+            GuestTable guestTable = new GuestTable()
             {
-                AboutId = updateAboutDto.AboutId,
-                Title = updateAboutDto.Title,
-                Description = updateAboutDto.Description,
-                ImageUrl = updateAboutDto.ImageUrl,
+                GuestTableId = updateGuestTableDto.GuestTableId,
+                Name = updateGuestTableDto.Name,
+                Status = false
             };
-            _guestTableService.TUpdate(about);
-            return Ok("Hakkında Alanı Güncellendi");
+            _guestTableService.TUpdate(guestTable);
+            return Ok("Misafir Masa Alanı Güncellendi");
         }
 
         [HttpGet("{id}")]

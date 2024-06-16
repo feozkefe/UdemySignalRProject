@@ -1,6 +1,6 @@
-﻿namespace SignalR.DtoLayer.GuestTableDto
+﻿namespace SignalRWebUI.Dtos.GuestTableDtos
 {
-    public class UpdateGuestTableDto
+    public class ResultGuestTableDto
     {
         public int GuestTableId { get; set; }
         public string Name { get; set; }

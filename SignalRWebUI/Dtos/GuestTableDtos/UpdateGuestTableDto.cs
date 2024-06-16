@@ -1,4 +1,4 @@
-﻿namespace SignalR.DtoLayer.GuestTableDto
+﻿namespace SignalRWebUI.Dtos.GuestTableDtos
 {
     public class UpdateGuestTableDto
     {

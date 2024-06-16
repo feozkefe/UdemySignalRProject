@@ -5,8 +5,8 @@ using SignalR.EntityLayer.Entities;
 
 namespace SignalRApi.Hubs
 {
-	public class SignalRHub : Hub
-	{
+    public class SignalRHub : Hub
+    {
         private readonly ICategoryService _categoryService;
         private readonly IProductService _productService;
         private readonly IOrderService _orderService;
@@ -25,6 +25,8 @@ namespace SignalRApi.Hubs
             _bookingService = bookingService;
             _notificationService = notificationService;
         }
+
+        public static int clientCount { get; set; } = 0;
 
         public async Task SendStatistic()
         {
@@ -101,7 +103,32 @@ namespace SignalRApi.Hubs
             await Clients.All.SendAsync("ReceiveNotificationCountByStatusFalse", values);
 
             var notificationListByFalse = _notificationService.TGetAllNotificationByFalse();
-            await Clients.All.SendAsync("ReceiveNotificationListByFalse",notificationListByFalse);
+            await Clients.All.SendAsync("ReceiveNotificationListByFalse", notificationListByFalse);
+        }
+
+        public async Task GetGuestTableStatus()
+        {
+            var values = _guestTableService.TGetListAll();
+            await Clients.All.SendAsync("ReceiveGuestTableStatus", values);
+        }
+
+        public async Task SendMessage(string user, string message)
+        {
+            await Clients.All.SendAsync("ReceiveMessage", user, message);
+        }
+
+        public override async Task OnConnectedAsync()
+        {
+            clientCount++;
+            await Clients.All.SendAsync("ReceiveClientCount", clientCount);
+            await base.OnConnectedAsync();
+        }
+
+        public override async Task OnDisconnectedAsync(Exception? exception)
+        {
+            clientCount--;
+            await Clients.All.SendAsync("ReceiveClientCount", clientCount);
+            await base.OnDisconnectedAsync(exception); 
         }
     }
 }
