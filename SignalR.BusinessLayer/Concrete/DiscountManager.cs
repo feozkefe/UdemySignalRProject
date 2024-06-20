@@ -42,5 +42,15 @@ namespace SignalR.BusinessLayer.Concrete
         {
             _discountDal.Update(entity);
         }
+
+        public void ChangeStatusToTrue(int id)
+        {
+            _discountDal.ChangeStatusToTrue(id);
+        }
+
+        public void ChangeStatusToFalse(int id)
+        {
+            _discountDal.ChangeStatusToFalse(id);
+        }
     }
 }

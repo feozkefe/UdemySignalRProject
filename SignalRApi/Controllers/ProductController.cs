@@ -82,7 +82,8 @@ namespace SignalRApi.Controllers
                 ImageUrl = y.ImageUrl,
                 Price = y.Price,
                 ProductName = y.ProductName,
-                CategoryName = y.Category.CategoryName
+                CategoryName = y.Category.CategoryName,
+                Status = y.Status
             });
             return Ok(values.ToList());
         }
