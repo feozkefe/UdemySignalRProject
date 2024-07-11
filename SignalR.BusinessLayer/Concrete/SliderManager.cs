@@ -15,22 +15,22 @@ namespace SignalR.BusinessLayer.Concrete
 
         public void TAdd(Slider entity)
         {
-            throw new NotImplementedException();
+            _sliderDal.Add(entity);
         }
 
         public void TDelete(Slider entity)
         {
-            throw new NotImplementedException();
+            _sliderDal.Delete(entity);
         }
 
         public void TUpdate(Slider entity)
         {
-            throw new NotImplementedException();
+            _sliderDal.Update(entity);
         }
 
         public Slider TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _sliderDal.GetById(id);
         }
 
         public List<Slider> TGetListAll()

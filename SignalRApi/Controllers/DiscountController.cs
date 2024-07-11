@@ -89,5 +89,11 @@ namespace SignalRApi.Controllers
             _discountService.ChangeStatusToFalse(id);
             return Ok("İndirim Statüsü Güncellendi");
         }
+
+        [HttpGet("GetListByStatusTrue")]
+        public IActionResult GetListByStatusTrue()
+        {
+            return Ok(_discountService.GetListByStatusTrue());
+        }
     }
 }

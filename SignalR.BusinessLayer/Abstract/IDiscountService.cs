@@ -11,5 +11,6 @@ namespace SignalR.BusinessLayer.Abstract
     {
         void ChangeStatusToTrue(int id);
         void ChangeStatusToFalse(int id);
+        List<Discount> GetListByStatusTrue();
     }
 }
