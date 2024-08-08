@@ -1,10 +1,12 @@
 ﻿using System.Text;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SignalRWebUI.Dtos.BasketDtos;
 
 namespace SignalRWebUI.Controllers
 {
+    [AllowAnonymous]
     public class BasketsController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

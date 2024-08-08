@@ -3,10 +3,12 @@ using Newtonsoft.Json;
 using SignalRWebUI.Dtos.FeatureDtos;
 using System.Text;
 using SignalRWebUI.Dtos.SliderDtos;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SignalRWebUI.Controllers
 {
-	public class SliderController : Controller
+    [AllowAnonymous]
+    public class SliderController : Controller
 	{
 		private readonly IHttpClientFactory _httpClientFactory;
 

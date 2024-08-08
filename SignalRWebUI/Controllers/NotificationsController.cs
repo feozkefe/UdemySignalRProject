@@ -2,9 +2,11 @@
 using Newtonsoft.Json;
 using System.Text;
 using SignalRWebUI.Dtos.NotificationDtos;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SignalRWebUI.Controllers
 {
+    [AllowAnonymous]
     public class NotificationsController : Controller
     {
 
